@@ -3,6 +3,7 @@ import { Stack } from "@mui/material";
 import { Navigate, Outlet } from "react-router-dom";
 import useResponsive from "../../hooks/useResponsive";
 import SideNav from "./SideNav";
+import ToolBar from "./ToolBar";
 import { useDispatch, useSelector } from "react-redux";
 
 const DashboardLayout = () => {
@@ -18,7 +19,8 @@ const DashboardLayout = () => {
   // }
 
   return (
-    <>
+    <Stack>
+      <ToolBar />
       <Stack direction="row">
         {isDesktop && (
           // SideBar
@@ -27,7 +29,7 @@ const DashboardLayout = () => {
 
         <Outlet />
       </Stack>
-    </>
+    </Stack>
   );
 };
 
