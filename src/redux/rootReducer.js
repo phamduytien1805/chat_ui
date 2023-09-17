@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import storage from "redux-persist/lib/storage";
+import globalReducer from "./slices/global";
 
 // ----------------------------------------------------------------------
 
@@ -11,6 +12,8 @@ const rootPersistConfig = {
   //   blacklist: [],
 };
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  global: globalReducer,
+});
 
 export { rootPersistConfig, rootReducer };

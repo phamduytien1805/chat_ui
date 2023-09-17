@@ -1,10 +1,15 @@
 import React from "react";
+import ThemeSettings from "./components/settings";
+import Router from "./routes";
+import ThemeProvider from "./theme";
 
 function App() {
   return (
     <>
       <ThemeProvider>
-        <Router />
+        <ThemeSettings>
+          <Router />
+        </ThemeSettings>
       </ThemeProvider>
     </>
   );
