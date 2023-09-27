@@ -22,10 +22,7 @@ const DashboardLayout = () => {
     <Stack>
       <ToolBar />
       <Stack direction="row">
-        {isDesktop && (
-          // SideBar
-          <SideNav />
-        )}
+        <SideNav />
 
         <Outlet />
       </Stack>

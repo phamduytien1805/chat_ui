@@ -5,14 +5,14 @@ import { PresenceBadge } from "../../components/Badge/PresenceBadge";
 
 function Profile(props) {
   return (
-    <Box display={"flex"}>
+    <Box display={"flex"} sx={{ borderRadius: "50%" }}>
       <PresenceBadge
         overlap="square"
         anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
         variant="dot"
       >
         <Avatar
-          sx={{ bgcolor: "orange", width: 24, height: 24 }}
+          sx={{ bgcolor: "orange", width: 36, height: 36, borderRadius: 1 }}
           variant="square"
         >
           N

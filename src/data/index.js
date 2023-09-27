@@ -3,6 +3,7 @@ import {
   ChatCircleDots,
   Gear,
   GearSix,
+  House,
   Phone,
   SignOut,
   User,
@@ -27,15 +28,18 @@ const Profile_Menu = [
 const Nav_Buttons = [
   {
     index: 0,
-    icon: <ChatCircleDots />,
+    label: "Home",
+    Icon: (rest) => <House width={20} height={20} {...rest} />,
   },
   {
     index: 1,
-    icon: <Users />,
+    label: "Home",
+    Icon: (rest) => <Users width={20} height={20} {...rest} />,
   },
   {
     index: 2,
-    icon: <Phone />,
+    label: "Home",
+    Icon: (rest) => <Phone width={20} height={20} {...rest} />,
   },
 ];
 

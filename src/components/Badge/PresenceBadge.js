@@ -3,6 +3,8 @@ import { Badge } from "@mui/material";
 
 const PresenceBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
+    bottom: 0,
+    right: 0,
     width: 8,
     height: 8,
     backgroundColor: "#44b700",

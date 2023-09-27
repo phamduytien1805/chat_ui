@@ -32,7 +32,8 @@ export default function ThemeProvider({ children }) {
       direction: themeDirection,
       shadows: isLight ? shadows.light : shadows.dark,
       customShadows: isLight ? customShadows.light : customShadows.dark,
-      sideBar: 100,
+      sideBar: 76,
+      toolBar: 40,
     }),
     [isLight, themeDirection]
   );

@@ -4,14 +4,15 @@ import { useTheme } from "@mui/material/styles";
 import { Box, Divider, IconButton, Stack } from "@mui/material";
 import AntSwitch from "../../components/AntSwitch/AntSwitch";
 
-import Logo from "../../assets/Images/logo.ico";
-
+import SlackLogo from "../../assets/Images/test.png";
 import useSettings from "../../hooks/useSettings";
 import { Nav_Buttons, Nav_Setting } from "../../data";
 
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { UpdateTab } from "../../redux/slices/global";
+import TabButton from "../../components/TabButton";
+import Profile from "./Profile";
 
 const getPath = (index) => {
   switch (index) {
@@ -52,9 +53,8 @@ const SideBar = () => {
   return (
     <Box
       sx={{
-        height: "100vh",
+        height: `calc(100vh - ${theme.toolBar}px)`,
         width: theme.sideBar,
-
         backgroundColor:
           theme.palette.mode === "light"
             ? "#F0F4FA"
@@ -63,112 +63,26 @@ const SideBar = () => {
       }}
     >
       <Stack
-        py={3}
+        p={1}
         alignItems={"center"}
         justifyContent="space-between"
         sx={{ height: "100%" }}
       >
-        <Stack alignItems={"center"} spacing={4}>
-          <Box
-            sx={{
-              height: 64,
-              width: 64,
-              borderRadius: 1.5,
-              backgroundColor: theme.palette.primary.main,
-            }}
-            p={1}
-          >
-            <img src={Logo} alt="Tawk" />
-          </Box>
-          <Stack
-            sx={{ width: "max-content" }}
-            direction="column"
-            alignItems={"center"}
-            spacing={3}
-          >
-            {Nav_Buttons.map((el) => {
-              return el.index == selectedTab ? (
-                <Box
-                  sx={{
-                    backgroundColor: theme.palette.primary.main,
-                    borderRadius: 1.5,
-                  }}
-                  p={1}
-                >
-                  <IconButton
-                    onClick={() => {
-                      handleChangeTab(el.index);
-                    }}
-                    sx={{ width: "max-content", color: "#ffffff" }}
-                  >
-                    {el.icon}
-                  </IconButton>
-                </Box>
-              ) : (
-                <IconButton
-                  onClick={() => {
-                    handleChangeTab(el.index);
-                  }}
-                  sx={{
-                    width: "max-content",
-                    color:
-                      theme.palette.mode === "light"
-                        ? "#080707"
-                        : theme.palette.text.primary,
-                  }}
-                >
-                  {el.icon}
-                </IconButton>
-              );
-            })}
-            <Divider sx={{ width: 48 }} />
-            {Nav_Setting.map((el) => {
-              return el.index == selectedTab ? (
-                <Box
-                  sx={{
-                    backgroundColor: theme.palette.primary.main,
-                    borderRadius: 1.5,
-                  }}
-                  p={1}
-                >
-                  <IconButton
-                    onClick={() => {
-                      handleChangeTab(el.index);
-                    }}
-                    sx={{ width: "max-content", color: "#ffffff" }}
-                  >
-                    {el.icon}
-                  </IconButton>
-                </Box>
-              ) : (
-                <IconButton
-                  onClick={() => {
-                    handleChangeTab(el.index);
-
-                    // dispatch(UpdateTab(el.index));
-                  }}
-                  sx={{
-                    width: "max-content",
-                    color:
-                      theme.palette.mode === "light"
-                        ? "#080707"
-                        : theme.palette.text.primary,
-                  }}
-                >
-                  {el.icon}
-                </IconButton>
-              );
-            })}
-          </Stack>
-        </Stack>
-        <Stack spacing={4}>
-          <AntSwitch
-            defaultChecked={theme.palette.mode === "dark"}
-            onChange={onToggleMode}
-          />
-          {/* Profile Menu */}
-          {/* <ProfileMenu /> */}
-        </Stack>
+        <Box display={"flex"} flexDirection={"column"} gap={2}>
+          {/* <TabButton
+            Icon={() => (
+              <img src="https://images.unsplash.com/photo-1588436706487-9d55d73a39e3" />
+            )}
+            index={-1}
+            style={{ marginBottom: 14 }}
+          /> */}
+          {Nav_Buttons.map((el) => (
+            <TabButton Icon={el.Icon} index={el.index} label={el.label} />
+          ))}
+        </Box>
+        <Box display={"flex"} flexDirection={"column"} gap={2}>
+          <Profile />
+        </Box>
       </Stack>
     </Box>
   );
