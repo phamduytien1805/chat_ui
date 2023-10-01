@@ -7,7 +7,8 @@ function Profile(props) {
   return (
     <Box display={"flex"} sx={{ borderRadius: "50%" }}>
       <PresenceBadge
-        overlap="square"
+        overlap="circular"
+        // overlap="square"
         anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
         variant="dot"
       >

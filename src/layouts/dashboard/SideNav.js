@@ -64,6 +64,7 @@ const SideBar = () => {
     >
       <Stack
         p={1}
+        py={3}
         alignItems={"center"}
         justifyContent="space-between"
         sx={{ height: "100%" }}
@@ -77,7 +78,12 @@ const SideBar = () => {
             style={{ marginBottom: 14 }}
           /> */}
           {Nav_Buttons.map((el) => (
-            <TabButton Icon={el.Icon} index={el.index} label={el.label} />
+            <TabButton
+              key={el.index}
+              Icon={el.Icon}
+              index={el.index}
+              label={el.label}
+            />
           ))}
         </Box>
         <Box display={"flex"} flexDirection={"column"} gap={2}>

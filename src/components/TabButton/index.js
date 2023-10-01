@@ -27,7 +27,7 @@ function TabButton(props) {
 
 TabButton.propTypes = {
   index: PropTypes.number,
-  Icon: PropTypes.node,
+  Icon: PropTypes.elementType,
   onChangeTab: PropTypes.func,
   isSelected: PropTypes.bool,
   label: PropTypes.string,

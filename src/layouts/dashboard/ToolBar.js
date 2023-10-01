@@ -9,12 +9,19 @@ import Profile from "./Profile";
 
 function ToolBar(props) {
   return (
-    <AppBar position="sticky">
+    <AppBar
+      position="sticky"
+      sx={{
+        "&.MuiAppBar-root": {
+          boxShadow: "none",
+        },
+      }}
+    >
       <Container
         maxWidth="xl"
         sx={(theme) => ({ height: theme.toolBar, p: 0.75 })}
       >
-        <StyledToolBar disableGutters>
+        <StyledToolBar>
           <Box
             sx={(theme) => ({
               [theme.breakpoints.down("md")]: {

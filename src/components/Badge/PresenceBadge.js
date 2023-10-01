@@ -3,6 +3,7 @@ import { Badge } from "@mui/material";
 
 const PresenceBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
+    transform: "inherit",
     bottom: 0,
     right: 0,
     width: 8,

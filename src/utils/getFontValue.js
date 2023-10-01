@@ -2,6 +2,7 @@
 import { useTheme } from "@mui/material/styles";
 // hooks
 import useResponsive from "../hooks/useResponsive";
+import { useWidth } from "../hooks/useWidth";
 
 // ----------------------------------------------------------------------
 
@@ -61,17 +62,3 @@ export function responsiveFontSizes({ sm, md, lg }) {
 }
 
 // ----------------------------------------------------------------------
-
-function useWidth() {
-  const theme = useTheme();
-
-  const keys = [...theme.breakpoints.keys].reverse();
-
-  return (
-    keys.reduce((output, key) => {
-      const matches = useResponsive("up", key);
-
-      return !output && matches ? key : output;
-    }, null) || "xs"
-  );
-}
